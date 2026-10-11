@@ -17,7 +17,6 @@ Materia: Programación Paralela (2026B_IH067_PP_V) · Docente: José Navarro Rí
 | Archivo | Para qué sirve |
 |---|---|
 | `practica1_6.cpp` | Código fuente completo |
-| `Makefile` | Compilar en Linux (mpicxx) — requerido por la práctica |
 | `compilar.bat` | Compilar en Windows con Visual Studio + MS-MPI |
 | `ejecutar_local.bat` | Correr 5 procesos en una sola PC (60%) |
 | `ejecutar_red.bat` | Correr en el clúster de 3 PCs (100%) |
