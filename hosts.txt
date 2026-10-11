@@ -1,0 +1,10 @@
+# ============================================================
+#  hostfile de MPI - Practica 1.6
+#  Cluster de 3 PCs (1 maestro + 2 equipos esclavos), 5 procesos.
+#  Ajusta las IPs a las de tu red real.
+#
+#  Formato MS-MPI / MPICH / OpenMPI: IP:numero_de_procesos
+# ============================================================
+192.168.137.1:1
+192.168.137.165:2
+192.168.137.153:2
