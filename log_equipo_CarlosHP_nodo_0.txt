@@ -1,0 +1,21 @@
+============================================================
+ LOG DE AUDITORIA - Practica 1.6
+ Equipo (PC): CarlosHP
+ Rango MPI: 0 de 5 procesos
+ Hilos OpenMP activos: 8
+============================================================
+
+[CONFIG] Clave objetivo cargada. Longitud = 2
+
+[SECUENCIAL] Inicio de busqueda lineal.
+[SECUENCIAL] Clave='M7' Indice=465 Tiempo=4.20003e-06s
+
+[PARALELO] Reparto de rangos entre 4 esclavos.
+   Esclavo 1 -> [0, 323]
+   Esclavo 2 -> [324, 647]
+   Esclavo 3 -> [648, 971]
+   Esclavo 4 -> [972, 1295]
+[PARALELO][EXITO] Clave='M7' Nodo ganador=2
+[PARALELO] Tiempo=0.0569174s. Todos los procesos finalizaron.
+
+[FIN] Proceso MPI 0 finaliza limpiamente.
