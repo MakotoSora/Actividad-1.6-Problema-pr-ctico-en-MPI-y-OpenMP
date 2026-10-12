@@ -41,7 +41,7 @@ const char *NOMBRES_EQUIPO[] = {
     "Montes de Oca del Risco Rafael Alejandro",
     "Ramirez Andrade Uriel Ismael Guadalupe"
 };
-const int NUM_INTEGRANTES = 4;
+const int NUM_INTEGRANTES = 3;
 
 void imprimirEquipo()
 {
