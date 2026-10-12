@@ -37,7 +37,6 @@ const unsigned long long CHUNK = 1000000ULL;
 //  >>> REVISA Y AJUSTA estos nombres segun tu equipo real de la 1.6 <<<
 // ============================================================================
 const char *NOMBRES_EQUIPO[] = {
-    "Cohen Napoles David",
     "Hermosillo Prado Carlos",
     "Montes de Oca del Risco Rafael Alejandro",
     "Ramirez Andrade Uriel Ismael Guadalupe"
