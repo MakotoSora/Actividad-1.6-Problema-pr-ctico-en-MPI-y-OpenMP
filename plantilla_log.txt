@@ -1,0 +1,22 @@
+============================================================
+ LOG DE AUDITORIA - Practica 1.6
+ Equipo (PC): [NOMBRE_PC]
+ Rango MPI: [RANK] de [SIZE] procesos
+ Hilos OpenMP activos: [HILOS]
+============================================================
+
+[CONFIG] Clave objetivo cargada. Longitud = [N]
+
+[SECUENCIAL] Inicio de busqueda lineal.
+[SECUENCIAL] Clave='[CLAVE]' Indice=[IDX] Tiempo=[T1]s
+
+[PARALELO] Reparto de rangos entre [E] esclavos.
+   Esclavo 1 -> [Inicio_1, Fin_1]
+   Esclavo 2 -> [Inicio_2, Fin_2]
+   ...
+[Equipo: [NOMBRE_PC]] [Nodo MPI: [RANK]] [Hilo OpenMP: [TID]] [Candidato: [XYZ]] [Estado: Evaluando]
+[EXITO] [Equipo: [NOMBRE_PC]] [Nodo MPI: [RANK]] [Hilo OpenMP: [TID]] [Clave Encontrada: "[CLAVE]"] [Tiempo Parcial: [t]s]
+[PARALELO][EXITO] Clave='[CLAVE]' Nodo ganador=[RANK]
+[PARALELO] Tiempo=[Tp]s. Todos los procesos finalizaron.
+
+[FIN] Proceso MPI [RANK] finaliza limpiamente.

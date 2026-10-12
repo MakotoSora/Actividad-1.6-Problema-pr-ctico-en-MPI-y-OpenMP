@@ -5,10 +5,36 @@
  Hilos OpenMP activos: 8
 ============================================================
 
+[CONFIG] Clave objetivo cargada. Longitud = 3
+
+[SECUENCIAL] Inicio de busqueda lineal.
+[SECUENCIAL] Clave='AB1' Indice=63 Tiempo=1.30013e-06s
+
+[PARALELO] Reparto de rangos entre 4 esclavos.
+   Esclavo 1 -> [0, 11663]
+   Esclavo 2 -> [11664, 23327]
+   Esclavo 3 -> [23328, 34991]
+   Esclavo 4 -> [34992, 46655]
+[PARALELO][EXITO] Clave='AB1' Nodo ganador=1
+[PARALELO] Tiempo=1.28209s. Todos los procesos finalizaron.
+
+[CONFIG] Clave objetivo cargada. Longitud = 7
+
+[SECUENCIAL] Inicio de busqueda lineal.
+[SECUENCIAL] Clave='A1B2C3D' Indice=1635576375 Tiempo=21.5654s
+
+[PARALELO] Reparto de rangos entre 4 esclavos.
+   Esclavo 1 -> [0, 19591041023]
+   Esclavo 2 -> [19591041024, 39182082047]
+   Esclavo 3 -> [39182082048, 58773123071]
+   Esclavo 4 -> [58773123072, 78364164095]
+[PARALELO][EXITO] Clave='A1B2C3D' Nodo ganador=1
+[PARALELO] Tiempo=110.265s. Todos los procesos finalizaron.
+
 [CONFIG] Clave objetivo cargada. Longitud = 2
 
 [SECUENCIAL] Inicio de busqueda lineal.
-[SECUENCIAL] Clave='M7' Indice=465 Tiempo=4.20003e-06s
+[SECUENCIAL] Clave='M7' Indice=465 Tiempo=4.49992e-06s
 
 [PARALELO] Reparto de rangos entre 4 esclavos.
    Esclavo 1 -> [0, 323]
@@ -16,6 +42,6 @@
    Esclavo 3 -> [648, 971]
    Esclavo 4 -> [972, 1295]
 [PARALELO][EXITO] Clave='M7' Nodo ganador=2
-[PARALELO] Tiempo=0.0569174s. Todos los procesos finalizaron.
+[PARALELO] Tiempo=0.0214207s. Todos los procesos finalizaron.
 
 [FIN] Proceso MPI 0 finaliza limpiamente.

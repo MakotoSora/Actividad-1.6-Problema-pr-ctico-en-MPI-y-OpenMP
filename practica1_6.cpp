@@ -1,10 +1,6 @@
 // ============================================================================
 //  Practica 1.6 - Algoritmo de Fuerza Bruta Distribuido con MPI y OpenMP
 //  Arquitectura Maestro-Esclavo
-//  INTEGRANTES DEL EQUIPO:
-//    Hermosillo Prado Carlos
-//    Montes de Oca del Risco Rafael Alejandro
-//    Ramirez Andrade Uriel Ismael Guadalupe
 //
 //  Alfabeto: 36 caracteres -> A..Z (26) y 0..9 (10)
 //  El maestro (rank 0) captura la clave, reparte rangos y coordina.
@@ -313,6 +309,7 @@ int main(int argc, char **argv)
                     cout << " [SIN EXITO] La clave no se encontro en el espacio de busqueda.\n";
                 }
                 cout << " Tiempo paralelo: " << tParalelo << " s\n";
+                cout.flush();   // mostrar el resultado de inmediato, sin esperar
                 log << "[PARALELO] Tiempo=" << tParalelo << "s. Todos los procesos finalizaron.\n";
                 log.flush();
                 delete[] claveHit;
@@ -341,12 +338,24 @@ int main(int argc, char **argv)
                 char *claveEncontrada = new char[longitud + 1];
                 claveEncontrada[0] = '\0';
 
-                // Procesamos el rango por bloques (CHUNK). Entre bloques revisamos
+                // Cuantas lineas de muestra mostramos EN PANTALLA por nodo (modo
+                // detallado). El LOG guarda TODAS; la consola solo unas pocas para
+                // no inundarla y que el resultado final se vea claro.
+                int lineasConsola = 0;
+                const int MAX_CONSOLA = 40;
+
+                // Tamano de bloque: en modo detallado (clave corta) usamos bloques
+                // chicos para revisar MUY seguido la senal de parada, y asi la parada
+                // temprana corta la impresion en cuanto se halla la clave. En claves
+                // grandes (7/10) usamos el bloque grande para no perder eficiencia.
+                unsigned long long chunkLocal = modoDetallado ? 500ULL : CHUNK;
+
+                // Procesamos el rango por bloques. Entre bloques revisamos
                 // si el maestro ya mando "parar" (parada temprana).
                 for (unsigned long long cs = inicio;
-                     cs <= fin && !encontrada && !parar; cs += CHUNK) {
+                     cs <= fin && !encontrada && !parar; cs += chunkLocal) {
 
-                    unsigned long long ce = cs + CHUNK - 1;
+                    unsigned long long ce = cs + chunkLocal - 1;
                     if (ce > fin) ce = fin;
                     int n = (int)(ce - cs + 1);   // tamano del bloque (cabe en int)
 
@@ -365,12 +374,19 @@ int main(int argc, char **argv)
                             if (modoDetallado) {
                                 #pragma omp critical
                                 {
-                                    cout << "[Equipo: " << nombrePC << "] [Nodo MPI: " << rank
-                                         << "] [Hilo OpenMP: " << omp_get_thread_num()
-                                         << "] [Candidato: " << cand << "] [Estado: Evaluando]\n";
+                                    // En el LOG siempre se guarda todo el detalle.
                                     log  << "[Equipo: " << nombrePC << "] [Nodo MPI: " << rank
                                          << "] [Hilo OpenMP: " << omp_get_thread_num()
                                          << "] [Candidato: " << cand << "] [Estado: Evaluando]\n";
+                                    // En PANTALLA solo las primeras MAX_CONSOLA lineas.
+                                    if (lineasConsola < MAX_CONSOLA) {
+                                        cout << "[Equipo: " << nombrePC << "] [Nodo MPI: " << rank
+                                             << "] [Hilo OpenMP: " << omp_get_thread_num()
+                                             << "] [Candidato: " << cand << "] [Estado: Evaluando]\n";
+                                        lineasConsola++;
+                                        if (lineasConsola == MAX_CONSOLA)
+                                            cout << "   ... (resto del detalle en el archivo de log del nodo " << rank << ")\n";
+                                    }
                                 }
                             }
 
