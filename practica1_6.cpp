@@ -1,6 +1,10 @@
 // ============================================================================
 //  Practica 1.6 - Algoritmo de Fuerza Bruta Distribuido con MPI y OpenMP
 //  Arquitectura Maestro-Esclavo
+//  INTEGRANTES DEL EQUIPO:
+//    Hermosillo Prado Carlos
+//    Montes de Oca del Risco Rafael Alejandro
+//    Ramirez Andrade Uriel Ismael Guadalupe
 //
 //  Alfabeto: 36 caracteres -> A..Z (26) y 0..9 (10)
 //  El maestro (rank 0) captura la clave, reparte rangos y coordina.
